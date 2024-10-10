@@ -3,11 +3,11 @@ import Post from "../post/Post";
 
 function PostList() {
   return (
-    <div className="post-list">
+    <>
       <Post />
       <Post />
       <Post />
-    </div>
+    </>
   );
 }
 

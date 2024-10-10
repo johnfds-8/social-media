@@ -6,22 +6,25 @@ import Header from "./components/header/Header";
 import PostList from "./components/postlist/PostList";
 import SideBar from "./components/sidebar/SideBar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import PostListProvider from "./store/strorelist/post-list-stroe";
 
 function App() {
   const [selectedTab, setselectedTab] = useState("Home");
+
   return (
-    <div className="app-container">
-      <SideBar selectedTab={selectedTab} />
+    <PostListProvider>
+      <div className="app-container">
+        <SideBar selectedTab={selectedTab} setselectedTab={setselectedTab} />
 
-      <div className="content">
-        <Header />
+        <div className="content">
+          <Header />
 
-        {selectedTab === "Home" ? <PostList /> : <CreatePost />}
+          {selectedTab === "Home" ? <PostList /> : <CreatePost />}
 
-        <Footer />
-        
+          <Footer />
+        </div>
       </div>
-    </div>
+    </PostListProvider>
   );
 }
 

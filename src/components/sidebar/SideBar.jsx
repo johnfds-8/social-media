@@ -1,6 +1,11 @@
 import React from "react";
 
-function SideBar({ selectedTab }) {
+function SideBar({ selectedTab, setselectedTab }) {
+
+
+  const handleOnClick = (tabName) =>{
+    setselectedTab(tabName);
+  }
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
@@ -16,7 +21,11 @@ function SideBar({ selectedTab }) {
       <hr />
 
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item">
+        <li
+          className="nav-item"
+          onClick={() => {
+            handleOnClick("Home");
+          }}>
           <a
             href="#"
             className={`nav-link text-white ${
@@ -30,7 +39,10 @@ function SideBar({ selectedTab }) {
           </a>
         </li>
 
-        <li>
+        <li
+          onClick={() => {
+            handleOnClick("Create Post");
+          }}>
           <a
             href="#"
             className={`nav-link text-white ${
