@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Post from "../post/Post";
 
+import { PostList as PostListData } from "../../store/strorelist/post-list-stroe";
 function PostList() {
+  const { postList } = useContext(PostListData);
   return (
     <>
-      <Post />
-      <Post />
-      <Post />
+      {postList.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
     </>
   );
 }
